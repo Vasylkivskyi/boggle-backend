@@ -1,47 +1,30 @@
 {
   "name": "boggle-server",
   "version": "1.0.0",
-  "description": "Boggle backend",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon",
-    "start": "node -r ./bootstrap.js build/app.js",
-    "build": "tsc --build tsconfig.build.json",
-    "lint": "eslint \"./src/**/*.ts\"",
-    "prettier:check": "prettier --config .prettierrc \"./src/**/*.+(js|json|ts)\" --check --ignore-unknown",
-    "prettier:write": "prettier --config .prettierrc \"./src/**/*.+(js|json|ts)\" --write --ignore-unknown"
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
   },
-  "lint-staged": {
-    "./src/**/*.+(ts|js)": [
-      "npm run lint",
-      "npm run prettier:check"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vasylkivskyi/boggle-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^18.15.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
-    "eslint": "^8.36.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-import-resolver-typescript": "^3.5.3",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
-    "nodemon": "^2.0.22",
-    "prettier": "^2.8.7",
-    "prisma": "^4.12.0",
-    "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.1.2",
-    "typescript": "^5.0.4"
+  "bugs": {
+    "url": "https://github.com/Vasylkivskyi/boggle-backend/issues"
   },
+  "homepage": "https://github.com/Vasylkivskyi/boggle-backend#readme",
+  "type": "module",
   "dependencies": {
-    "@prisma/client": "^4.12.0",
-    "express": "^4.18.2"
+    "@apollo/server": "^4.6.0",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "typescript": "^5.0.4"
   }
 }
