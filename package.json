@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "start": "node 'dist/index.js'",
+    "build": "tsc -p . && ncp src dist",
+    "start:dev": "npm run build:dev",
+    "build:dev": "nodemon 'src/index.ts' --exec 'ts-node' src/index.ts -e ts,graphql"
   },
   "repository": {
     "type": "git",
@@ -18,13 +20,21 @@
     "url": "https://github.com/Vasylkivskyi/boggle-backend/issues"
   },
   "homepage": "https://github.com/Vasylkivskyi/boggle-backend#readme",
-  "type": "module",
   "dependencies": {
-    "@apollo/server": "^4.6.0",
-    "graphql": "^16.6.0"
+    "@apollo/server": "^4.7.1",
+    "@prisma/client": "^4.13.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.13.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }
 }
