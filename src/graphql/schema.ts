@@ -15,8 +15,9 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(userInput: UserInput): User!
+    createUser(userInput: UserInput): String!
   }
+
   enum Gender {
     MALE
     FEMALE
@@ -24,8 +25,8 @@ export const typeDefs = gql`
   }
 
   input UserInput {
-    username: String
-    password: String
-    email: String
+    username: String!
+    password: String!
+    email: String!
   }
 `;

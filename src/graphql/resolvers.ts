@@ -1,4 +1,6 @@
+import { UserController } from "../controllers/user.controller";
 import { prisma } from "../lib/prisma";
+import { UserInputType } from "../types";
 
 export const resolvers = {
   Query: {
@@ -7,21 +9,8 @@ export const resolvers = {
     },
   },
   Mutation: {
-    async createUser(
-      _: any,
-      {
-        userInput: { username, password, email },
-      }: { userInput: { username: string; password: string; email: string } }
-    ) {
-      const user = await prisma.user.create({
-        data: {
-          username: username,
-          email: email,
-          password: password,
-        },
-      });
-      console.log(user);
-      return user;
+    async createUser(_: any, { userInput }: { userInput: UserInputType }) {
+      return await UserController.createUser(userInput);
     },
   },
 };
