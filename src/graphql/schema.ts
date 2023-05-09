@@ -11,11 +11,11 @@ export const typeDefs = gql`
   }
 
   type Query {
-    getUsers: [User]!
+    Login(loginInput: LoginInput): String!
   }
 
   type Mutation {
-    createUser(userInput: UserInput): String!
+    CreateUser(userInput: UserInput): String!
   }
 
   enum Gender {
@@ -26,6 +26,11 @@ export const typeDefs = gql`
 
   input UserInput {
     username: String!
+    password: String!
+    email: String!
+  }
+
+  input LoginInput {
     password: String!
     email: String!
   }
